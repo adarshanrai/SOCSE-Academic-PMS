@@ -21,11 +21,10 @@ export const dummyProjects = [
     },
     teamSize: 5,
     team: [
-      { name: "Sujal Thapa", role: "Project Leader", image: "members/sujal.jpeg" },
-      { name: "Rejeol Bhutia", role: "App Developer", image: "members/rejeol.jpeg" },
-      { name: "Adarshan Rai", role: "Frontend Developer", image: "members/ada.jpeg" },
+      { name: "Sujal Thapa", role: "Project Leader", image: "/members/sujal.jpeg" },
+      { name: "Rejeol Bhutia", role: "App Developer", image: "/members/rejeol.jpeg" },
+      { name: "Adarshan Rai", role: "Frontend Developer", image: "/members/ada.jpeg" },
       { name: "Abash Ansari", role: "Backend Developer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" },
-      { name: "Ananya Sharma", role: "AI & Swarm Logic", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" },
       { name: "Bikas Prasad", role: "UI/UX Designer", image: "members/bikas.jpeg" },
     ],
     gallery: [
