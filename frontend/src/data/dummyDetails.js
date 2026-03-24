@@ -14,19 +14,19 @@ export const dummyProjects = [
     youtubeLink: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder YouTube link
     quote: "Reducing commute wait times across the 100-acre campus by predicting shuttle arrivals accurately.",
     mentor: {
-      name: "Pritam Bhagat",
+      name: "Dr. Alan Turing",
       role: "Project Guide",
-      department: "Computer Science & engineering",
+      department: "Computer Science & Engineering",
       image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop"
     },
-    teamSize: 3,
+    teamSize: 5,
     team: [
-      { name: "Sujal Thapa", role: "Project Leader", image: "/members/sujal.jpeg" },
-      { name: "Rejeol Bhutia", role: "App Developer", image: "/members/rejeol.jpeg" },
-      { name: "Adarshan Rai", role: "Frontend Developer", image: "/members/ada.jpeg" },
-      { name: "Abash Ansari", role: "Backend Developer", image: "/members/abas.jpg" },
-      { name: "Bikas Prasad", role: "UI/UX Designer", image: "/members/bikas.jpeg" },
-     
+      { name: "Sujal Thapa", role: "Project Leader", image: "members/sujal.jpeg" },
+      { name: "Rejeol Bhutia", role: "App Developer", image: "members/rejeol.jpeg" },
+      { name: "Adarshan Rai", role: "Frontend Developer", image: "members/ada.jpeg" },
+      { name: "Abash Ansari", role: "Backend Developer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" },
+      { name: "Ananya Sharma", role: "AI & Swarm Logic", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" },
+      { name: "Bikas Prasad", role: "UI/UX Designer", image: "members/bikas.jpeg" },
     ],
     gallery: [
       { title: "App Prototype", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=300&auto=format&fit=crop" },
@@ -105,12 +105,11 @@ export const dummyProjects = [
       department: "Network Security Lab",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop"
     },
-    teamSize: 2,
+    teamSize: 3,
     team: [
- { name: "Rejeol Bhutia", role: "App Developer", image: "/members/rejeol.jpeg" },
-      { name: "Abash Ansari", role: "Backend Developer", image: "/members/abas.jpg" },
-      { name: "Bikas Prasad", role: "UI/UX Designer", image: "/members/bikas.jpeg" },
-
+      { name: "Diana Prince", role: "App Developer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" },
+      { name: "Evan Wright", role: "Backend Developer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" },
+      { name: "Fiona Clark", role: "UI/UX Designer", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" },
     ],
       
     gallery: [

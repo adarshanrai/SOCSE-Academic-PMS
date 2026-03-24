@@ -31,14 +31,14 @@ export default function News() {
         <section className="mb-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Campus Intelligence</h2>
+              <h2 className="text-3xl md:text-5xl font-headline font-extrabold tracking-tight text-primary mb-2">Campus Intelligence</h2>
               <p className="text-on-surface-variant max-w-md">The pulse of innovation, research breakthroughs, and academic milestones.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
               <div className="relative flex-grow md:w-64">
                 <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
                 <input 
-                  className="w-full bg-surface-container-highest border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 rounded-t-lg px-10 py-3 text-sm transition-all" 
+                  className="w-full bg-surface-container-high border-0 border-b-2 border-transparent focus:border-tertiary-fixed-dim focus:ring-0 rounded-t-xl px-10 py-3 text-sm transition-all" 
                   placeholder="Search insights..." 
                   type="text" 
                   value={search}
@@ -57,7 +57,7 @@ export default function News() {
 
         {/* Featured News Item */}
         <section className="mb-20">
-          <div className="group relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm">
+          <div className="group relative overflow-hidden rounded-xl bg-surface-container-low shadow-ambient">
             <div className="asymmetric-grid items-center">
               <div className="relative h-[300px] md:h-[500px] overflow-hidden">
                 <img alt="Featured Lab" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop" />
@@ -73,7 +73,7 @@ export default function News() {
                 </div>
                 <h3 className="text-3xl md:text-4xl font-headline font-extrabold text-on-surface leading-tight mb-6">Quantum Leap: The New Era of Computational Research in India</h3>
                 <p className="text-on-surface-variant text-lg leading-relaxed mb-10">Our university researchers have successfully demonstrated a stable 50-qubit simulation, paving the way for unprecedented data processing capabilities in local infrastructure.</p>
-                <button onClick={handleFeatureClick} className="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-lg font-bold shadow-lg shadow-orange-900/10 hover:shadow-orange-900/20 active:scale-95 transition-all">
+                <button onClick={handleFeatureClick} className="inline-flex items-center gap-2 primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold shadow-ambient active:scale-95 transition-all">
                   Read Full Story
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
@@ -103,7 +103,7 @@ export default function News() {
             </div>
           </article>
           {/* News Item 2 */}
-          <article className="flex flex-col group border-l-4 border-primary-fixed pl-6 py-2 cursor-pointer" onClick={handleFeatureClick}>
+          <article className="flex flex-col group py-2 cursor-pointer" onClick={handleFeatureClick}>
             <div className="flex items-center gap-3 mb-3">
               <span className="text-secondary font-bold text-[10px] uppercase tracking-widest">Events</span>
               <span className="text-on-surface-variant text-[10px]">Oct 19, 2023</span>
@@ -138,7 +138,7 @@ export default function News() {
         </section>
 
         {/* Newsletter Subscription Box */}
-        <section className="relative rounded-2xl bg-surface-container-low overflow-hidden mt-10 mb-20 shadow-sm border border-outline-variant/5">
+        <section className="relative rounded-2xl bg-surface-container-low overflow-hidden mt-10 mb-20 shadow-ambient">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary rounded-full blur-[100px]"></div>
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary rounded-full blur-[100px]"></div>
@@ -149,14 +149,14 @@ export default function News() {
             <p className="text-on-surface-variant mb-10 text-lg">Join 15,000+ scholars and innovators receiving our bi-weekly digest of breakthroughs and opportunities.</p>
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input 
-                className="flex-grow bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 px-6 py-4 rounded-lg text-on-surface placeholder:text-outline transition-all" 
+                className="flex-grow bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-tertiary-fixed-dim focus:ring-0 px-6 py-4 rounded-xl text-on-surface placeholder:text-outline transition-all" 
                 placeholder="academic@university.edu" 
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <button className="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-bold hover:bg-secondary-dim transition-colors shadow-lg active:scale-95 whitespace-nowrap" type="submit">Subscribe Now</button>
+              <button className="primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-ambient active:scale-95 whitespace-nowrap" type="submit">Subscribe Now</button>
             </form>
             <p className="mt-6 text-[10px] text-outline uppercase tracking-widest font-semibold italic">We respect your privacy. No spam, ever.</p>
           </div>
