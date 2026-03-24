@@ -14,10 +14,10 @@ export const dummyProjects = [
     youtubeLink: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder YouTube link
     quote: "Reducing commute wait times across the 100-acre campus by predicting shuttle arrivals accurately.",
     mentor: {
-      name: "Dr. Alan Turing",
+      name: "Pritam Bhagat",
       role: "Project Guide",
       department: "Computer Science & Engineering",
-      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=200&auto=format&fit=crop"
+      image: "/mentors/ps.jpeg"
     },
     teamSize: 5,
     team: [
@@ -25,7 +25,7 @@ export const dummyProjects = [
       { name: "Rejeol Bhutia", role: "App Developer", image: "/members/rejeol.jpeg" },
       { name: "Adarshan Rai", role: "Frontend Developer", image: "/members/ada.jpeg" },
       { name: "Abash Ansari", role: "Backend Developer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" },
-      { name: "Bikas Prasad", role: "UI/UX Designer", image: "members/bikas.jpeg" },
+      { name: "Bikas Prasad", role: "UI/UX Designer", image: "/members/bikas.jpeg" },
     ],
     gallery: [
       { title: "App Prototype", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=300&auto=format&fit=crop" },

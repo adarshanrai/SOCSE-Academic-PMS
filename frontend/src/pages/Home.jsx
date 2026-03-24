@@ -68,7 +68,8 @@ export default function Home() {
   <span className="text-white">Start at MSU.</span>
 </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-body">
-              The SOCSE Academic Project Management Portal is the heartbeat of innovation at MSU. We empower researchers and students to turn bold ideas into impactful solutions for India's future.
+           The School of Computer Science and Engineering (SOCSE) at MSU is where ideas turn into impact. It’s a dynamic space where students go beyond learning to build real-world solutions, combining creativity, technology, and hands-on innovation to solve meaningful problems and shape India’s digital future.
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => navigate("/projects")} className="bg-[#fc9d00] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-ambient active:scale-95 transition-all flex items-center justify-center gap-2">
@@ -101,23 +102,23 @@ export default function Home() {
         <section className="px-6 md:px-12 -mt-12 mb-24 relative z-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             <div className="bg-surface-container-lowest p-8 rounded-xl shadow-ambient flex flex-col gap-2">
-              <span className="text-on-surface-variant font-semibold text-sm uppercase tracking-widest font-headline">Active Innovations</span>
+              <span className="text-on-surface-variant font-semibold text-sm uppercase tracking-widest font-headline">Active Initiatives</span>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-primary font-headline">450+</span>
+                <span className="text-4xl font-extrabold text-primary font-headline">50+</span>
                 <span className="material-symbols-outlined text-primary mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>
               </div>
             </div>
             <div className="bg-surface-container-lowest p-8 rounded-xl shadow-ambient flex flex-col gap-2">
               <span className="text-on-surface-variant font-semibold text-sm uppercase tracking-widest font-headline">Research Funding</span>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-secondary font-headline">₹12Cr+</span>
+                <span className="text-4xl font-extrabold text-secondary font-headline">₹12k+</span>
                 <span className="material-symbols-outlined text-secondary mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>payments</span>
               </div>
             </div>
             <div className="bg-surface-container-lowest p-8 rounded-xl shadow-ambient flex flex-col gap-2">
               <span className="text-on-surface-variant font-semibold text-sm uppercase tracking-widest font-headline">Patents Filed</span>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-tertiary font-headline">85+</span>
+                <span className="text-4xl font-extrabold text-tertiary font-headline">2+</span>
                 <span className="material-symbols-outlined text-tertiary mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>gavel</span>
               </div>
             </div>
@@ -220,7 +221,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Website Contributors Section */}
+       
+
+        {/* CTA Section */}
+       <section className="px-6 py-24 flex justify-center">
+  <div className="w-full max-w-6xl primary-gradient rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/30">
+    <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary#fc9d00/10 rounded-full blur-3xl"></div>
+    <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
+    <h2 className="text-4xl md:text-5xl font-extrabold text-[#fc9d00] mb-6 relative z-10 font-headline">Have an Idea that can Change India?</h2>
+    <p className="text-primary-fixed text-lg md:text-xl max-w-2xl mx-auto mb-10 relative z-10 opacity-90 font-body">
+      We provide the mentorship, funding, and infrastructure to bring your vision to life. Submit your proposal today and start your journey.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+      <button onClick={handleFeatureClick} className="bg-[#fc9d00] text-white px-10 py-5 rounded-xl font-extrabold text-xl shadow-xl hover:shadow-2xl active:scale-95 transition-all flex items-center justify-center gap-3">
+        Submit Your Proposal
+        <span className="material-symbols-outlined">send</span>
+      </button>
+      <button onClick={handleFeatureClick} className="bg-transparent border-2 border-white/40 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-white/10 active:scale-95 transition-all">
+        Talk to a Mentor
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+ {/* Website Contributors Section */}
         <section className="px-6 md:px-12 py-20 bg-surface flex justify-center">
             <div className="w-full max-w-6xl">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -255,26 +281,9 @@ export default function Home() {
             </div>
         </section>
 
-        {/* CTA Section */}
-       <section className="px-6 py-24 flex justify-center">
-  <div className="w-full max-w-6xl primary-gradient rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/30">
-    <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary#fc9d00/10 rounded-full blur-3xl"></div>
-    <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
-    <h2 className="text-4xl md:text-5xl font-extrabold text-[#fc9d00] mb-6 relative z-10 font-headline">Have an Idea that can Change India?</h2>
-    <p className="text-primary-fixed text-lg md:text-xl max-w-2xl mx-auto mb-10 relative z-10 opacity-90 font-body">
-      We provide the mentorship, funding, and infrastructure to bring your vision to life. Submit your proposal today and start your journey.
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-      <button onClick={handleFeatureClick} className="bg-[#fc9d00] text-white px-10 py-5 rounded-xl font-extrabold text-xl shadow-xl hover:shadow-2xl active:scale-95 transition-all flex items-center justify-center gap-3">
-        Submit Your Proposal
-        <span className="material-symbols-outlined">send</span>
-      </button>
-      <button onClick={handleFeatureClick} className="bg-transparent border-2 border-white/40 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-white/10 active:scale-95 transition-all">
-        Talk to a Mentor
-      </button>
-    </div>
-  </div>
-</section>
+
+
+
 
         <Footer />
       </main>
