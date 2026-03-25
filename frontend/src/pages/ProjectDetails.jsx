@@ -1,10 +1,76 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import BottomNav from "../components/layout/BottomNav";
 import Footer from "../components/layout/Footer";
 import { Link, useParams } from "react-router-dom";
 import { dummyProjects } from "../data/dummyDetails";
 import { MentorCard, TeamMembersSection } from "../components/projects/ProjectCard";
+import styled from 'styled-components';
+
+// Styled Gallery Card Component
+const GalleryCard = styled.div`
+  .gallery-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f2f2f2;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .gallery-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2);
+  }
+
+  .gallery-card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  .gallery-card:hover .gallery-card__content {
+    transform: rotateX(0deg);
+  }
+
+  .gallery-card:hover img {
+    scale: 1.1;
+  }
+
+  .gallery-card__description {
+    margin: 0;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 400;
+  }
+`;
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -39,7 +105,8 @@ export default function ProjectDetails() {
 
   const mentor = project.mentor ? {
     name: project.mentor.name,
-    image: project.mentor.image
+    image: project.mentor.image,
+    faculty: project.mentor.faculty || "Faculty of Computer Science & Engineering"
   } : null;
 
   const teamMembers = project.team || [];
@@ -55,12 +122,6 @@ export default function ProjectDetails() {
             <Link to="/projects" className="hover:text-primary transition-colors">Projects</Link>
             <span className="material-symbols-outlined text-sm">chevron_right</span>
             <span className="text-secondary">{project.id}</span>
-          </div>
-          <div className="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-xl">
-            <div className="flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${project.status === 'Ongoing' ? 'bg-secondary animate-pulse' : 'bg-primary'}`}></span>
-              <span className="text-xs font-bold uppercase tracking-widest text-on-surface font-headline">{project.status}</span>
-            </div>
             <div className="h-4 w-[1px] bg-outline-variant/30"></div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-primary font-headline">{project.progress}% Complete</span>
@@ -118,10 +179,18 @@ export default function ProjectDetails() {
           <section className="mb-16">
             <h3 className="text-3xl font-headline font-extrabold text-on-surface tracking-tight mb-8 text-center">Project Mentor</h3>
             <MentorCard 
-              name={mentor.name} 
               image={mentor.image}
               isMobile={isMobile}
             />
+            {/* Mentor Name and Faculty Below the Card */}
+            <div className="text-center mt-6">
+              <h4 className="text-2xl font-headline font-bold text-primary mb-2">
+                {mentor.name}
+              </h4>
+              <p className="text-secondary font-medium text-base">
+                {mentor.faculty}
+              </p>
+            </div>
           </section>
         )}
         
@@ -141,14 +210,16 @@ export default function ProjectDetails() {
               <p className="text-on-surface-variant max-w-lg text-sm">Visual documentation of prototypes and application interfaces.</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {project.gallery && project.gallery.map((img, i) => (
-              <div key={i} className="aspect-square rounded-2xl overflow-hidden bg-surface-container-lowest group relative shadow-ambient transition-all">
-                <img alt={img.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src={img.image} />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end h-1/2">
-                  <span className="text-white font-bold text-lg tracking-tight truncate font-headline">{img.title}</span>
+              <GalleryCard key={i}>
+                <div className="gallery-card">
+                  <img alt={img.title} src={img.image} />
+                  <div className="gallery-card__content">
+                    <p className="gallery-card__description">{img.description || "No description available"}</p>
+                  </div>
                 </div>
-              </div>
+              </GalleryCard>
             ))}
           </div>
         </section>
@@ -188,8 +259,6 @@ export default function ProjectDetails() {
           </section>
         )}
       </main>
-
-      <BottomNav />
     </div>
   );
 }

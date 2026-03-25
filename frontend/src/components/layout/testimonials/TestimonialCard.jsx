@@ -1,4 +1,4 @@
-// src/components/testimonials/TestimonialCard.jsx
+// omponents/testimonials/TestimonialCard.jsx
 import { useState } from "react";
 
 export default function TestimonialCard({ testimonials = [] }) {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import BottomNav from "../components/layout/BottomNav";
 import Footer from "../components/layout/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import { dummyProjects } from "../data/dummyDetails";
@@ -72,12 +71,12 @@ export default function Home() {
 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => navigate("/projects")} className="bg-[#fc9d00] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-ambient active:scale-95 transition-all flex items-center justify-center gap-2">
-                Get Started
+              <button onClick={() => navigate("/initiative")} className="bg-[#fc9d00] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-ambient active:scale-95 transition-all flex items-center justify-center gap-2">
+                Learn More
                 <span className="material-symbols-outlined">arrow_forward</span>
               </button>
               <button onClick={() => navigate("/projects")} className="bg-transparent border-2 border-white/60 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 active:scale-95 transition-all flex items-center justify-center gap-2">
-                Explore Portal
+                Explore Projects
               </button>
             </div>
           </div>
@@ -221,8 +220,6 @@ export default function Home() {
           </div>
         </section>
 
-       
-
         {/* CTA Section */}
        <section className="px-6 py-24 flex justify-center">
   <div className="w-full max-w-6xl primary-gradient rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/30">
@@ -244,51 +241,8 @@ export default function Home() {
   </div>
 </section>
 
-
-
- {/* Website Contributors Section */}
-        <section className="px-6 md:px-12 py-20 bg-surface flex justify-center">
-            <div className="w-full max-w-6xl">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                    <div>
-                    <span className="text-secondary font-bold text-sm uppercase tracking-[0.2em] mb-3 block">Meet The Team</span>
-                    <h2 className="font-headline text-4xl font-bold text-primary tracking-tight">Website Contributors</h2>
-                    </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="bg-surface-container-low p-8 rounded-2xl shadow-ambient text-center hover:shadow-lg hover:bg-surface-bright transition-all duration-300">
-                    <div className="w-20 h-20 rounded-full bg-primary-container mx-auto flex items-center justify-center mb-6">
-                        <span className="material-symbols-outlined text-white text-3xl">terminal</span>
-                    </div>
-                    <h3 className="font-headline text-2xl font-bold text-primary mb-2">Sujal Thapa</h3>
-                    <p className="text-secondary font-bold text-sm uppercase tracking-wide">Backend Dev</p>
-                    </div>
-                    <div className="bg-surface-container-low p-8 rounded-2xl shadow-ambient text-center hover:shadow-lg hover:bg-surface-bright transition-all duration-300">
-                    <div className="w-20 h-20 rounded-full bg-primary-container mx-auto flex items-center justify-center mb-6">
-                        <span className="material-symbols-outlined text-white text-3xl">admin_panel_settings</span>
-                    </div>
-                    <h3 className="font-headline text-2xl font-bold text-primary mb-2">Bikas Prasad</h3>
-                    <p className="text-secondary font-bold text-sm uppercase tracking-wide">Admin Panel Dev</p>
-                    </div>
-                    <div className="bg-surface-container-low p-8 rounded-2xl shadow-ambient text-center hover:shadow-lg hover:bg-surface-bright transition-all duration-300">
-                    <div className="w-20 h-20 rounded-full bg-primary-container mx-auto flex items-center justify-center mb-6">
-                        <span className="material-symbols-outlined text-white text-3xl">code_blocks</span>
-                    </div>
-                    <h3 className="font-headline text-2xl font-bold text-primary mb-2">Adarshan Rai</h3>
-                    <p className="text-secondary font-bold text-sm uppercase tracking-wide">Frontend Dev</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
-
-
         <Footer />
       </main>
-
-      <BottomNav />
     </div>
   );
 }

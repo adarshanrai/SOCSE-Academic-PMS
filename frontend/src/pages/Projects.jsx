@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-import BottomNav from "../components/layout/BottomNav";
 import { Link } from "react-router-dom";
 import { dummyProjects } from "../data/dummyDetails";
 
@@ -128,18 +127,9 @@ export default function Projects() {
                     src={project.heroImage}
                     alt={project.title}
                   />
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-on-secondary-container font-label text-[10px] font-bold uppercase tracking-wider ${project.status === 'Ongoing' ? 'bg-tertiary-container text-on-tertiary-fixed-variant' : 'bg-secondary-container'}`}>
-                      {project.status}
-                    </span>
-                  </div>
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className={`font-label text-[11px] font-semibold px-2 py-0.5 rounded uppercase ${project.status === 'Ongoing' ? 'text-secondary bg-secondary-fixed/30' : 'text-tertiary-fixed-dim bg-tertiary-container'}`}>
-                      {project.category}
-                    </span>
-                  </div>
+                  
                   <h3 className="font-headline text-xl font-bold text-primary mb-3 leading-snug">
                     {project.title}
                   </h3>
@@ -193,8 +183,6 @@ export default function Projects() {
           </div>
         )}
       </main>
-
-      <BottomNav />
     </div>
   );
 }

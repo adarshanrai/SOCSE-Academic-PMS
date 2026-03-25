@@ -1,6 +1,5 @@
 // src/pages/Testimonials.jsx
 import Navbar from "../components/layout/Navbar";
-import BottomNav from "../components/layout/BottomNav";
 import TestimonialCard from "../components/layout/testimonials/TestimonialCard";
 import { testimonialsData } from "../data/testimonialsData";
 
@@ -54,7 +53,7 @@ export default function Testimonials() {
         </section>
       </main>
 
-      <BottomNav />
+    
     </div>
   );
 }

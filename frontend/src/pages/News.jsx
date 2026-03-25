@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-import BottomNav from "../components/layout/BottomNav";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function News() {
@@ -328,8 +327,6 @@ export default function News() {
           </div>
         </section>
       </main>
-
-      <BottomNav />
     </div>
   );
 }
