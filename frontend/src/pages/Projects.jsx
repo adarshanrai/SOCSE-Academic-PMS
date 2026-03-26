@@ -17,7 +17,7 @@ export default function Projects() {
     return true;
   });
 
-  // Calculate total slides (each slide shows 6 projects)
+  
   const projectsPerSlide = 6;
   const totalSlides = Math.ceil(filteredProjects.length / projectsPerSlide);
   

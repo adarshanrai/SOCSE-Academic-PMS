@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Link } from "react-router-dom";
+
 
 export default function Blog() {
   const [activeTab, setActiveTab] = useState("all");
