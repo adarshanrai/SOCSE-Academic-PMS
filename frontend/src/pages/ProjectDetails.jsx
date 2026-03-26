@@ -44,7 +44,7 @@ const GalleryCard = styled.div`
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
     transform: rotateX(-90deg);
     transform-origin: bottom;
     transition: all 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -116,19 +116,12 @@ export default function ProjectDetails() {
       <Navbar />
       
       <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-        {/* Breadcrumb & Status */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+        {/* Breadcrumb */}
+        <div className="flex flex-wrap items-center gap-4 mb-10">
           <div className="flex items-center gap-2 text-sm font-semibold tracking-wide text-on-surface-variant uppercase font-headline">
             <Link to="/projects" className="hover:text-primary transition-colors">Projects</Link>
             <span className="material-symbols-outlined text-sm">chevron_right</span>
             <span className="text-secondary">{project.id}</span>
-            <div className="h-4 w-[1px] bg-outline-variant/30"></div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-primary font-headline">{project.progress}% Complete</span>
-              <div className="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                <div className="bg-primary h-full" style={{ width: `${project.progress}%` }}></div>
-              </div>
-            </div>
           </div>
         </div>
         
