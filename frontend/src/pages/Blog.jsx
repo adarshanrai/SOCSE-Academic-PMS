@@ -15,8 +15,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
       role: "Frontend Developer",
       category: "Hot Takes",
-      likes: 24,
-      comments: 8,
       date: "2 hours ago",
       isTrending: true,
       isHotTake: true,
@@ -30,8 +28,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/men/45.jpg",
       role: "Backend Developer",
       category: "Opinion",
-      likes: 42,
-      comments: 15,
       date: "5 hours ago",
       isTrending: true,
       isHotTake: false,
@@ -45,8 +41,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/women/68.jpg",
       role: "AI Researcher",
       category: "Hot Takes",
-      likes: 156,
-      comments: 45,
       date: "1 day ago",
       isTrending: true,
       isHotTake: true,
@@ -60,8 +54,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/women/44.jpg",
       role: "Literature Enthusiast",
       category: "Literature",
-      likes: 67,
-      comments: 23,
       date: "2 days ago",
       isTrending: false,
       isHotTake: false,
@@ -75,8 +67,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/men/52.jpg",
       role: "Book Club Lead",
       category: "Recommendations",
-      likes: 89,
-      comments: 34,
       date: "3 days ago",
       isTrending: true,
       isHotTake: false,
@@ -90,8 +80,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/men/67.jpg",
       role: "Senior Dev",
       category: "Hot Takes",
-      likes: 203,
-      comments: 67,
       date: "4 days ago",
       isTrending: true,
       isHotTake: true,
@@ -105,8 +93,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/women/33.jpg",
       role: "Creative Technologist",
       category: "Creative",
-      likes: 45,
-      comments: 12,
       date: "5 days ago",
       isTrending: false,
       isHotTake: false,
@@ -120,8 +106,6 @@ export default function Blog() {
       authorAvatar: "https://randomuser.me/api/portraits/men/67.jpg",
       role: "Admin Panel Developer",
       category: "Life Hacks",
-      likes: 78,
-      comments: 29,
       date: "6 days ago",
       isTrending: false,
       isHotTake: false,
@@ -140,12 +124,6 @@ export default function Blog() {
     { id: "Life Hacks", label: "Life Hacks", icon: "lightbulb", color: "text-yellow-500" },
     { id: "Other", label: "Other", icon: "more_horiz", color: "text-gray-500" }
   ];
-
-  const handleLike = (postId) => {
-    setPosts(posts.map(post => 
-      post.id === postId ? { ...post, likes: post.likes + 1 } : post
-    ));
-  };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -169,8 +147,6 @@ export default function Blog() {
         authorAvatar: "https://randomuser.me/api/portraits/men/1.jpg",
         role: "Student Contributor",
         category: newPost.category || "Other",
-        likes: 0,
-        comments: 0,
         date: "Just now",
         isTrending: false,
         isHotTake: newPost.category === "Hot Takes",
@@ -207,7 +183,6 @@ export default function Blog() {
           <div className="relative z-10 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fc9d00] text-white mb-6">
               <span className="material-symbols-outlined text-sm">edit_note</span>
-             
             </div>
             <h1 className="text-5xl md:text-7xl font-headline font-extrabold tracking-tight mb-4">
               The <span className="text-[#fc9d00]">SoCSE</span> Forums
@@ -259,7 +234,6 @@ export default function Blog() {
                   <p className="text-sm font-medium group-hover:text-[#fc9d00] transition-colors">{post.title}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className={`text-xs ${getCategoryColor(post.category)}`}>{post.category}</span>
-                    <span className="text-xs text-on-surface-variant">• {post.likes} likes</span>
                   </div>
                 </div>
               ))}
@@ -278,7 +252,6 @@ export default function Blog() {
                   <p className="text-sm font-medium group-hover:text-red-500 transition-colors">{post.title}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-xs text-red-400">Hot Take</span>
-                    <span className="text-xs text-on-surface-variant">• {post.likes} likes</span>
                   </div>
                 </div>
               ))}
@@ -332,19 +305,8 @@ export default function Blog() {
                     </p>
                   </div>
 
-                  {/* Post Actions */}
+                  {/* Post Actions - Removed likes and comments */}
                   <div className="flex items-center gap-6 pt-4 border-t border-outline-variant/10">
-                    <button 
-                      onClick={() => handleLike(post.id)}
-                      className="flex items-center gap-2 text-on-surface-variant hover:text-[#fc9d00] transition-colors group/btn"
-                    >
-                      <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">favorite</span>
-                      <span className="text-sm font-medium">{post.likes} likes</span>
-                    </button>
-                    <button className="flex items-center gap-2 text-on-surface-variant hover:text-[#fc9d00] transition-colors group/btn">
-                      <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">chat_bubble</span>
-                      <span className="text-sm font-medium">{post.comments} comments</span>
-                    </button>
                     <button className="flex items-center gap-2 text-on-surface-variant hover:text-[#fc9d00] transition-colors group/btn">
                       <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">share</span>
                       <span className="text-sm font-medium">Share</span>
@@ -375,10 +337,6 @@ export default function Blog() {
                 <div className="flex justify-between items-center">
                   <span className="text-on-surface-variant">Literature Posts</span>
                   <span className="font-bold text-emerald-500">{posts.filter(p => p.category === "Literature").length}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-on-surface-variant">Total Engagement</span>
-                  <span className="font-bold text-[#fc9d00]">{posts.reduce((sum, p) => sum + p.likes + p.comments, 0)}</span>
                 </div>
               </div>
             </div>
@@ -414,8 +372,8 @@ export default function Blog() {
             </div>
           </div>
         </section>
-      </main>
-
+      </main> 
+      
       {/* Write Modal with Image Upload */}
       {showWriteModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowWriteModal(false)}>
@@ -517,7 +475,6 @@ export default function Blog() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
