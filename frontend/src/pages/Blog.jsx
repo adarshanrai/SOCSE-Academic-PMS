@@ -410,7 +410,7 @@ export default function Blog() {
               <p className="text-on-surface italic text-sm leading-relaxed mb-3 relative z-10">
                 A thought shared today could spark the innovation of tomorrow. Share your voice, challenge ideas, and grow together.
               </p>
-              <p className="text-xs text-secondary font-bold">— Student Community</p>
+              <p className="text-xs text-secondary font-bold">— SoCSE Community</p>
             </div>
           </div>
         </section>
