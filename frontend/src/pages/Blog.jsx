@@ -220,7 +220,7 @@ export default function Blog() {
           </div>
         </section>
 
-        {/* Trending & Hot Takes Row */}
+     
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {/* Trending Section */}
           <div className="bg-gradient-to-r from-[#fc9d00]/5 to-transparent rounded-2xl p-5 border-l-4 border-[#fc9d00]">

@@ -13,7 +13,7 @@ export default function AboutInitiative() {
       <Navbar />
 
       <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-        {/* Hero Section */}
+ 
         <section className="relative mb-20 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container/10 mb-6 mx-auto w-fit">
             <span className="material-symbols-outlined text-[14px] text-secondary">stars</span>
