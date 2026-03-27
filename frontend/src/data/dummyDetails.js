@@ -250,6 +250,7 @@ export const dummyProjects = [
     teamSize: 1,
     team: [
       { name: "Saranam Rai", role: "Lead Researcher & Developer", image: "/members/Landslide/saranam.jpg" },
+      { name: "Saranam Rai", role: "Lead Researcher & Developer", image: "/members/Landslide/saranam.jpg" },
     ],
     gallery: [
       {

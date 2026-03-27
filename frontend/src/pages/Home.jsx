@@ -103,7 +103,7 @@ export default function Home() {
             <div className="bg-surface-container-lowest p-8 rounded-xl shadow-ambient flex flex-col gap-2">
               <span className="text-on-surface-variant font-semibold text-sm uppercase tracking-widest font-headline">Active Initiatives</span>
               <div className="flex items-end gap-2">
-                <span className="text-4xl font-extrabold text-primary font-headline">50+</span>
+                <span className="text-4xl font-extrabold text-primary font-headline">30+</span>
                 <span className="material-symbols-outlined text-primary mb-1" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>
               </div>
             </div>

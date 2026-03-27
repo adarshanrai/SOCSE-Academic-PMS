@@ -8,7 +8,7 @@ export default function Blog() {
   const [posts, setPosts] = useState([
     {
       id: 1,
-      title: "The Thousand Masks",
+      title: "I own a Thousand Masks",
       content: `I own a thousand masks.
 Each one distinct from the other.
 Each one adorned with a unique facade.
@@ -21,7 +21,7 @@ With them, I am loud.
 With some, I am enigmatic.
 
 I own a thousand masks.
-They metamorphose with every encounter.
+They change with every encounter.
 I laugh when anticipated.
 I nod when asked.
 
@@ -29,8 +29,11 @@ I own a thousand masks.
 Each one feels real for a moment,
 yet none stay.
 And when all of the masks crumble and fall,
-I am left alone with a question:
-Who am I beneath them all?`,
+I am left alone with a question
+Who am I beneath them all?
+
+(Why not use it since I am the moderator)
+`,
       author: "Adarshan Rai",
       authorAvatar: "/members/me.jpeg",
       role: "Frontend Developer",
