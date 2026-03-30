@@ -29,9 +29,7 @@ export const MentorCard = ({ name, image, isMobile }) => {
   );
 };
 
-// ============================================
-// TEAM MEMBERS SECTION - AUTO-SIZING FOR 2 OR LESS
-// ============================================
+
 
 export const TeamMembersSection = ({ members, isMobile }) => {
   const getMemberImage = (member) => {
@@ -41,7 +39,6 @@ export const TeamMembersSection = ({ members, isMobile }) => {
 
   const memberCount = members.length;
 
-  // For projects with 2 or less members - Use centered cards
   if (memberCount <= 2) {
     if (isMobile) {
       // Mobile view - Centered cards
