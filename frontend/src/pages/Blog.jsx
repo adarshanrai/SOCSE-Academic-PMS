@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/layout/Navbar";
 
-
 export default function Blog() {
   const [activeTab, setActiveTab] = useState("all");
   const [showWriteModal, setShowWriteModal] = useState(false);
@@ -9,21 +8,45 @@ export default function Blog() {
   const [posts, setPosts] = useState([
     {
       id: 1,
-      title: "The Future of AI in Education: My Thoughts",
-      content: "After attending the recent AI workshop, I believe AI will revolutionize how we learn. Personalized learning paths, instant feedback, and intelligent tutoring systems are just the beginning. What are your thoughts on this?",
+      title: "I own a Thousand Masks",
+      content: `I own a thousand masks.
+Each one distinct from the other.
+Each one adorned with a unique facade.
+Each one reflecting a spectrum of emotions.
+
+I own a thousand masks.
+With her, I am gentle.
+With him, I am confident.
+With them, I am loud.
+With some, I am enigmatic.
+
+I own a thousand masks.
+They change with every encounter.
+I laugh when anticipated.
+I nod when asked.
+
+I own a thousand masks.
+Each one feels real for a moment,
+yet none stay.
+And when all of the masks crumble and fall,
+I am left alone with a question
+Who am I beneath them all?
+
+(Why not use it since I am the moderator)
+`,
       author: "Adarshan Rai",
-      authorAvatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      authorAvatar: "/members/me.jpeg",
       role: "Frontend Developer",
-      category: "Hot Takes",
+      category: "Literature",
       date: "2 hours ago",
       isTrending: true,
-      isHotTake: true,
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=600&auto=format&fit=crop"
+      isHotTake: false,
+      image: "https://i.pinimg.com/originals/ee/1f/f9/ee1ff96d8c115cec47cee9b63d247fa1.gif"
     },
     {
       id: 2,
       title: "Why Open Source Matters for Students",
-      content: "Started contributing to open source last semester and it's been a game-changer. The learning curve is steep but the community support is incredible. Any other students here contributing to OSS? Let's connect!",
+      content: "Started contributing to open source last semester and it's been a game-changer. The learning curve is steep but the community support is incredible.\n\nAny other students here contributing to OSS? Let's connect and share our experiences!",
       author: "Sujal Thapa",
       authorAvatar: "https://randomuser.me/api/portraits/men/45.jpg",
       role: "Backend Developer",
@@ -36,7 +59,7 @@ export default function Blog() {
     {
       id: 3,
       title: "The Overrated Hype Around AI: A Critical Look",
-      content: "Unpopular opinion: AI is being overhyped. While it's powerful, we need to be realistic about its limitations. Let's discuss the ethical concerns and environmental impact of large language models.",
+      content: "Unpopular opinion: AI is being overhyped. While it's powerful, we need to be realistic about its limitations. Let's discuss the ethical concerns and environmental impact of large language models.\n\nWhat are your thoughts? Do you agree or disagree?",
       author: "Dr. Meera Krishnamurthy",
       authorAvatar: "https://randomuser.me/api/portraits/women/68.jpg",
       role: "AI Researcher",
@@ -49,7 +72,7 @@ export default function Blog() {
     {
       id: 4,
       title: "Why Literature Matters in a Tech-Driven World",
-      content: "As computer science students, we often neglect humanities. But reading literature builds empathy, critical thinking, and storytelling skills - essential for any technologist. Share your favorite books!",
+      content: "As computer science students, we often neglect humanities. But reading literature builds empathy, critical thinking, and storytelling skills - essential for any technologist.\n\nShare your favorite books below!",
       author: "Ananya Sharma",
       authorAvatar: "https://randomuser.me/api/portraits/women/44.jpg",
       role: "Literature Enthusiast",
@@ -62,7 +85,7 @@ export default function Blog() {
     {
       id: 5,
       title: "Best Sci-Fi Books Every Developer Should Read",
-      content: "From Neuromancer to Dune, science fiction has predicted so much of our tech reality. Here's my reading list for aspiring developers. What would you add?",
+      content: "From Neuromancer to Dune, science fiction has predicted so much of our tech reality.\n\nHere's my reading list for aspiring developers:\n• Neuromancer by William Gibson\n• Snow Crash by Neal Stephenson\n• Dune by Frank Herbert\n• The Martian by Andy Weir\n\nWhat would you add to this list?",
       author: "Vikram Singh",
       authorAvatar: "https://randomuser.me/api/portraits/men/52.jpg",
       role: "Book Club Lead",
@@ -75,7 +98,7 @@ export default function Blog() {
     {
       id: 6,
       title: "Hot Take: JavaScript is Holding Us Back",
-      content: "I know I'll get hate for this, but JavaScript's quirks make it a terrible language for large-scale applications. TypeScript is the bare minimum, but we need something better. Change my mind!",
+      content: "I know I'll get hate for this, but JavaScript's quirks make it a terrible language for large-scale applications. TypeScript is the bare minimum, but we need something better.\n\nChange my mind! Let's have a healthy debate in the comments.",
       author: "Tech Enthusiast",
       authorAvatar: "https://randomuser.me/api/portraits/men/67.jpg",
       role: "Senior Dev",
@@ -88,7 +111,7 @@ export default function Blog() {
     {
       id: 7,
       title: "The Beauty of Poetry: Finding Rhythm in Code",
-      content: "There's a surprising connection between writing poetry and writing code. Both require precision, creativity, and finding elegant solutions. Anyone else feel this way?",
+      content: "There's a surprising connection between writing poetry and writing code. Both require precision, creativity, and finding elegant solutions.\n\nAnyone else feel this way? Share your thoughts!",
       author: "Poet Coder",
       authorAvatar: "https://randomuser.me/api/portraits/women/33.jpg",
       role: "Creative Technologist",
@@ -101,7 +124,7 @@ export default function Blog() {
     {
       id: 8,
       title: "Campus Life: Best Cafes for Late Night Study Sessions",
-      content: "Found some hidden gems near campus that are open late and have great coffee. Perfect for those all-nighters before exams. Share your favorite spots!",
+      content: "Found some hidden gems near campus that are open late and have great coffee. Perfect for those all-nighters before exams.\n\nMy top picks:\n• The Reading Room Cafe - open till 2 AM\n• Brew & Books - great ambiance and Wi-Fi\n• Midnight Munchies - best coffee and snacks\n\nShare your favorite spots below!",
       author: "Bikas Prasad",
       authorAvatar: "https://randomuser.me/api/portraits/men/67.jpg",
       role: "Admin Panel Developer",
@@ -124,6 +147,77 @@ export default function Blog() {
     { id: "Life Hacks", label: "Life Hacks", icon: "lightbulb", color: "text-yellow-500" },
     { id: "Other", label: "Other", icon: "more_horiz", color: "text-gray-500" }
   ];
+
+  // Helper function to detect poetic formatting
+  const isPoeticFormat = (content) => {
+    const lines = content.split('\n');
+    const hasMultipleLines = lines.length > 4;
+    const avgLineLength = content.length / lines.length;
+    const hasShortLines = avgLineLength < 50;
+    const hasStanzas = content.includes('\n\n');
+    const hasRepeatedPattern = content.match(/(I own a thousand masks|With |They |Each one)/g);
+    
+    return hasMultipleLines && (hasShortLines || hasStanzas || hasRepeatedPattern);
+  };
+
+  // Helper function to render content with appropriate formatting
+  const renderContent = (content) => {
+    const isPoem = isPoeticFormat(content);
+    
+    if (isPoem) {
+      const stanzas = content.split(/\n\n+/);
+      
+      return (
+        <div className="poetic-content space-y-6">
+          {stanzas.map((stanza, idx) => (
+            <div key={idx} className="stanza space-y-1.5">
+              {stanza.split('\n').map((line, lineIdx) => (
+                <p key={lineIdx} className="leading-relaxed text-on-surface-variant font-serif italic">
+                  {line}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+    }
+    
+    const paragraphs = content.split(/\n\n+/);
+    return (
+      <div className="regular-content space-y-4">
+        {paragraphs.map((para, idx) => {
+          // Check if paragraph contains bullet points or list items
+          if (para.includes('•') || para.includes('- ') || para.match(/^\d+\./m)) {
+            const lines = para.split('\n');
+            return (
+              <div key={idx} className="space-y-2">
+                {lines.map((line, lineIdx) => {
+                  if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+                    return (
+                      <div key={lineIdx} className="flex items-start gap-2">
+                        <span className="text-[#fc9d00] mt-1">•</span>
+                        <p className="text-on-surface-variant leading-relaxed">{line.substring(1).trim()}</p>
+                      </div>
+                    );
+                  }
+                  return (
+                    <p key={lineIdx} className="text-on-surface-variant leading-relaxed">
+                      {line}
+                    </p>
+                  );
+                })}
+              </div>
+            );
+          }
+          return (
+            <p key={idx} className="text-on-surface-variant leading-relaxed">
+              {para}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -220,7 +314,7 @@ export default function Blog() {
           </div>
         </section>
 
-     
+        {/* Trending & Hot Takes Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {/* Trending Section */}
           <div className="bg-gradient-to-r from-[#fc9d00]/5 to-transparent rounded-2xl p-5 border-l-4 border-[#fc9d00]">
@@ -295,17 +389,15 @@ export default function Blog() {
                     </div>
                   </div>
 
-                  {/* Post Content */}
+                  {/* Post Content with Smart Formatting */}
                   <div className="mb-4">
                     <h2 className="text-xl font-headline font-bold text-primary mb-3 group-hover:text-[#fc9d00] transition-colors">
                       {post.title}
                     </h2>
-                    <p className="text-on-surface-variant leading-relaxed">
-                      {post.content}
-                    </p>
+                    {renderContent(post.content)}
                   </div>
 
-                  {/* Post Actions - Removed likes and comments */}
+                  {/* Post Actions */}
                   <div className="flex items-center gap-6 pt-4 border-t border-outline-variant/10">
                     <button className="flex items-center gap-2 text-on-surface-variant hover:text-[#fc9d00] transition-colors group/btn">
                       <span className="material-symbols-outlined text-lg group-hover/btn:scale-110 transition-transform">share</span>
@@ -449,11 +541,15 @@ export default function Blog() {
                 <textarea
                   value={newPost.content}
                   onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-                  placeholder="Share your thoughts, experiences, or discussion topic..."
-                  rows="6"
-                  className="w-full bg-surface-container-high border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface focus:border-[#fc9d00] focus:ring-0 transition-colors resize-none"
+                  placeholder="Share your thoughts, experiences, or discussion topic...&#10;&#10;For poems or formatted text, use line breaks:&#10;Line 1&#10;Line 2&#10;&#10;For paragraphs, use double line breaks:&#10;&#10;This creates a new paragraph."
+                  rows="12"
+                  className="w-full bg-surface-container-high border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface focus:border-[#fc9d00] focus:ring-0 transition-colors resize-none font-mono text-sm"
+                  style={{ whiteSpace: 'pre-wrap' }}
                   required
                 />
+                <p className="text-xs text-on-surface-variant mt-2 mt-2">
+                  💡 Tip: Use single line breaks for poems, double line breaks for paragraphs, and • or - for bullet points
+                </p>
               </div>
 
               <div className="flex gap-3 justify-end">

@@ -44,7 +44,7 @@ const GalleryCard = styled.div`
     height: 100%;
     padding: 20px;
     box-sizing: border-box;
-       background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
     transform: rotateX(-90deg);
     transform-origin: bottom;
     transition: all 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -75,8 +75,14 @@ const GalleryCard = styled.div`
 export default function ProjectDetails() {
   const { id } = useParams();
   const [isMobile, setIsMobile] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
   const project = dummyProjects.find(p => p.id === id) || dummyProjects[0];
+  const currentProjectId = dummyProjects.findIndex(p => p.id === id);
+  
+  // Get previous and next projects
+  const prevProject = currentProjectId > 0 ? dummyProjects[currentProjectId - 1] : null;
+  const nextProject = currentProjectId < dummyProjects.length - 1 ? dummyProjects[currentProjectId + 1] : null;
 
   // Check if mobile
   useEffect(() => {
@@ -116,19 +122,12 @@ export default function ProjectDetails() {
       <Navbar />
       
       <main className="pt-24 pb-32 px-6 max-w-7xl mx-auto">
-        {/* Breadcrumb & Status */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+        {/* Breadcrumb */}
+        <div className="flex flex-wrap items-center gap-4 mb-10">
           <div className="flex items-center gap-2 text-sm font-semibold tracking-wide text-on-surface-variant uppercase font-headline">
             <Link to="/projects" className="hover:text-primary transition-colors">Projects</Link>
             <span className="material-symbols-outlined text-sm">chevron_right</span>
             <span className="text-secondary">{project.id}</span>
-            <div className="h-4 w-[1px] bg-outline-variant/30"></div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-primary font-headline">{project.progress}% Complete</span>
-              <div className="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                <div className="bg-primary h-full" style={{ width: `${project.progress}%` }}></div>
-              </div>
-            </div>
           </div>
         </div>
         
@@ -179,6 +178,7 @@ export default function ProjectDetails() {
           <section className="mb-16">
             <h3 className="text-3xl font-headline font-extrabold text-on-surface tracking-tight mb-8 text-center">Project Mentor</h3>
             <MentorCard 
+              name={mentor.name}
               image={mentor.image}
               isMobile={isMobile}
             />
@@ -202,7 +202,7 @@ export default function ProjectDetails() {
           />
         </section>
 
-        {/* Image Gallery */}
+        {/* Image Gallery - Mobile Carousel with Arrows */}
         <section className="mb-20">
           <div className="flex items-end justify-between mb-8">
             <div>
@@ -210,18 +210,94 @@ export default function ProjectDetails() {
               <p className="text-on-surface-variant max-w-lg text-sm">Visual documentation of prototypes and application interfaces.</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {project.gallery && project.gallery.map((img, i) => (
-              <GalleryCard key={i}>
-                <div className="gallery-card">
-                  <img alt={img.title} src={img.image} />
-                  <div className="gallery-card__content">
-                    <p className="gallery-card__description">{img.description || "No description available"}</p>
-                  </div>
+          
+          {isMobile ? (
+            // Mobile view - Carousel with arrows
+            <div className="relative">
+              {/* Left Arrow */}
+              <button
+                onClick={() => setGalleryIndex(Math.max(0, galleryIndex - 1))}
+                disabled={galleryIndex === 0}
+                className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#001e40] shadow-lg flex items-center justify-center transition-all ${
+                  galleryIndex === 0 ? "opacity-40 cursor-not-allowed" : "hover:bg-[#002b5c] active:scale-95"
+                }`}
+              >
+                <span className="material-symbols-outlined text-white">chevron_left</span>
+              </button>
+              
+              {/* Carousel Container */}
+              <div className="overflow-hidden px-10">
+                <div 
+                  className="flex transition-transform duration-300 ease-out gap-4"
+                  style={{ transform: `translateX(-${galleryIndex * 100}%)` }}
+                >
+                  {project.gallery && project.gallery.map((img, i) => (
+                    <div key={i} className="w-full flex-shrink-0">
+                      <GalleryCard>
+                        <div className="gallery-card">
+                          <img alt={img.title} src={img.image} />
+                          <div className="gallery-card__content">
+                            <p className="gallery-card__description">{img.description || "No description available"}</p>
+                          </div>
+                        </div>
+                      </GalleryCard>
+                    </div>
+                  ))}
                 </div>
-              </GalleryCard>
-            ))}
-          </div>
+              </div>
+              
+              {/* Right Arrow */}
+              <button
+                onClick={() => setGalleryIndex(Math.min(project.gallery?.length - 1 || 0, galleryIndex + 1))}
+                disabled={galleryIndex === (project.gallery?.length || 0) - 1}
+                className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#001e40] shadow-lg flex items-center justify-center transition-all ${
+                  galleryIndex === (project.gallery?.length || 0) - 1 ? "opacity-40 cursor-not-allowed" : "hover:bg-[#002b5c] active:scale-95"
+                }`}
+              >
+                <span className="material-symbols-outlined text-white">chevron_right</span>
+              </button>
+              
+              {/* Carousel Indicators */}
+              {project.gallery && project.gallery.length > 1 && (
+                <div className="flex justify-center gap-2 mt-6">
+                  {project.gallery.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setGalleryIndex(i)}
+                      className={`h-2 rounded-full transition-all duration-300 ${
+                        galleryIndex === i
+                          ? "w-6 bg-[#fc9d00]"
+                          : "w-2 bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+              
+              {/* Page Counter */}
+              {project.gallery && project.gallery.length > 1 && (
+                <div className="text-center mt-3">
+                  <p className="text-xs text-on-surface-variant">
+                    {galleryIndex + 1} / {project.gallery.length}
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            // Desktop view - Grid layout
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {project.gallery && project.gallery.map((img, i) => (
+                <GalleryCard key={i}>
+                  <div className="gallery-card">
+                    <img alt={img.title} src={img.image} />
+                    <div className="gallery-card__content">
+                      <p className="gallery-card__description">{img.description || "No description available"}</p>
+                    </div>
+                  </div>
+                </GalleryCard>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* Detailed Research Section */}
@@ -259,6 +335,46 @@ export default function ProjectDetails() {
           </section>
         )}
       </main>
+
+      {/* Navigation Arrows */}
+      <div className="max-w-7xl mx-auto px-6 pb-32">
+        <div className="flex justify-between items-center gap-4 flex-wrap">
+          {prevProject && (
+            <Link 
+              to={`/projects/${prevProject.id}`}
+              className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white shadow-md hover:shadow-lg flex-1 min-w-[200px] border border-gray-200"
+            >
+              <span className="material-symbols-outlined text-2xl text-[#fc9d00]">arrow_back</span>
+              <div>
+                <p className="text-xs text-gray-500 uppercase">Previous</p>
+                <p className="font-bold text-gray-800 line-clamp-1">{prevProject.title}</p>
+              </div>
+            </Link>
+          )}
+          
+          <Link 
+            to="/projects"
+            className="px-6 py-4 rounded-xl bg-[#fc9d00] text-white font-semibold min-w-[140px] text-center"
+          >
+            All Projects
+          </Link>
+          
+          {nextProject && (
+            <Link 
+              to={`/projects/${nextProject.id}`}
+              className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white shadow-md hover:shadow-lg flex-1 min-w-[200px] justify-end border border-gray-200"
+            >
+              <div className="text-right">
+                <p className="text-xs text-gray-500 uppercase">Next</p>
+                <p className="font-bold text-gray-800 line-clamp-1">{nextProject.title}</p>
+              </div>
+              <span className="material-symbols-outlined text-2xl text-[#fc9d00]">arrow_forward</span>
+            </Link>
+          )}
+        </div>
+      </div>
+      
+      <Footer />
     </div>
   );
 }

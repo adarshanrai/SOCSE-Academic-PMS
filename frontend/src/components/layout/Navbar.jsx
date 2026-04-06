@@ -22,13 +22,13 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   const linkClass = (targetPath) =>
-    path === targetPath
-      ? "text-[#001e40] font-bold hover:text-[#fc9d00] transition-colors"
+    path === targetPath || (targetPath !== "/" && path.startsWith(targetPath))
+      ? "text-[#fc9d00] font-bold transition-colors"
       : "text-on-surface-variant font-semibold hover:text-[#fc9d00] transition-colors";
 
   const mobileLinkClass = (targetPath) =>
-    path === targetPath
-      ? "block px-4 py-3 text-[#fc9d00] font-bold border-l-4 border-[#fc9d00]"
+    path === targetPath || (targetPath !== "/" && path.startsWith(targetPath))
+      ? "block px-4 py-3 text-[#fc9d00] font-bold border-l-4 border-[#fc9d00] bg-orange-50"
       : "block px-4 py-3 text-[#fc9d00]/80 font-semibold hover:text-[#fc9d00] hover:bg-gray-100 transition-colors";
 
   const navLinks = [
@@ -52,7 +52,7 @@ export default function Navbar() {
               src="/logo/msu-logo.png"
             />
           </div>
-          <span className="text-lg md:text-xl font-extrabold text-[#001e40] tracking-tighter font-headline">
+          <span className="text-lg md:text-xl font-extrabold text-[#081e2d] tracking-tighter font-headline">
             CSE Build Lab
           </span>
         </div>
@@ -99,7 +99,7 @@ export default function Navbar() {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <span className="text-lg font-extrabold text-[#fc9d00] tracking-tighter font-headline">
+            <span className="text-lg font-extrabold text-[#081e2d] tracking-tighter font-headline">
               CSE Build Lab
             </span>
             <button
@@ -113,44 +113,58 @@ export default function Navbar() {
 
           {/* Links */}
           <div className="flex flex-col py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                className={mobileLinkClass(link.path)}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="flex items-center gap-3">
-                  {link.path === "/" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">home</span>
-                  )}
-                  {link.path === "/projects" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">science</span>
-                  )}
-                  {link.path === "/news" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">newspaper</span>
-                  )}
-                  {link.path === "/initiative" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">stars</span>
-                  )}
-                  {link.path === "/testimonials" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">rate_review</span>
-                  )}
-                  {link.path === "/blog" && (
-                    <span className="material-symbols-outlined text-sm text-[#fc9d00]/70">edit_note</span>
-                  )}
-                  {link.label}
-                </span>
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = path === link.path || (link.path !== "/" && path.startsWith(link.path));
+              return (
+                <Link
+                  key={link.path}
+                  className={mobileLinkClass(link.path)}
+                  to={link.path}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span className="flex items-center gap-3">
+                    {link.path === "/" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        home
+                      </span>
+                    )}
+                    {link.path === "/projects" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        science
+                      </span>
+                    )}
+                    {link.path === "/news" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        newspaper
+                      </span>
+                    )}
+                    {link.path === "/initiative" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        stars
+                      </span>
+                    )}
+                    {link.path === "/testimonials" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        rate_review
+                      </span>
+                    )}
+                    {link.path === "/blog" && (
+                      <span className={`material-symbols-outlined text-sm ${isActive ? "text-[#fc9d00]" : "text-[#fc9d00]/70"}`}>
+                        edit_note
+                      </span>
+                    )}
+                    {link.label}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
 
           {/* Footer */}
           <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-200">
-            <div className="flex items-center justify-center gap-6 text-[#fc9d00]/70 text-xs">
-              <span>This one took a  while</span>
-              <span className="w-1 h-1 rounded-full bg-[#fc9d00]/30"></span>
-             
+            <div className="flex items-center justify-center gap-6 text-[#081e2d]/70 text-xs">
+              <span>This one took a while</span>
+              
             </div>
           </div>
         </div>
