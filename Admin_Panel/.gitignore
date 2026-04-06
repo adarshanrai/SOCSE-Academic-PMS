@@ -1,3 +1,5 @@
+
+.vercel
 # Logs
 logs
 *.log
@@ -22,3 +24,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+>>>>>>> 551ee3b (backup before pull)
