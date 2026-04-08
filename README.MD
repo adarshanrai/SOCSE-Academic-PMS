@@ -6,6 +6,7 @@ The SOCSE Academic Project Management Portal is a web-based system designed to m
 
 It consists of:
 
+
 - A public frontend website
 - A separate admin panel
 - A backend API server
